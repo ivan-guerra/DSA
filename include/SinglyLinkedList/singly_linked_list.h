@@ -13,6 +13,8 @@ class SinglyLinkedList {
     SinglyLinkedList(std::size_t n, const T& val);
     SinglyLinkedList(const SinglyLinkedList& rhs) { Copy(rhs); }
     SinglyLinkedList& operator=(const SinglyLinkedList& rhs);
+    SinglyLinkedList(SinglyLinkedList&&) = delete;
+    SinglyLinkedList& operator=(SinglyLinkedList&&) = delete;
 
     const T& Front() const { return head_->data; }
     T& Front() { return head_->data; }

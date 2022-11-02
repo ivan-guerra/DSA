@@ -9,8 +9,10 @@ class Array {
     Array() = default;
     ~Array() = default;
     Array(const Array& rhs) { Copy(rhs); }
+    Array(Array&&) = delete;
 
     Array& operator=(const Array& rhs);
+    Array& operator=(Array&&) = delete;
     const T& operator[](std::size_t i) const { return data_[i]; }
     T& operator[](std::size_t i) { return data_[i]; }
 
