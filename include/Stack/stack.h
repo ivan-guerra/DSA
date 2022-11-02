@@ -11,8 +11,8 @@ class Stack {
     ~Stack() = default;
     Stack(const Stack& st) = default;
     Stack& operator=(const Stack& st) = default;
-    Stack(Stack&&) = delete;
-    Stack& operator=(Stack&&) = delete;
+    Stack(Stack&&) = default;
+    Stack& operator=(Stack&&) = default;
 
     std::size_t Size() const { return data_.size(); }
     bool Empty() const { return data_.empty(); }
