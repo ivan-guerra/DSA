@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.13...3.22)
 
-project(circular_queue DESCRIPTION "Circular Queue"
+project(queue DESCRIPTION "Queue"
               LANGUAGES   CXX
 )
 
-add_executable(${PROJECT_NAME} circular_queue.cc)
+add_executable(${PROJECT_NAME} queue.cc)
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC
