@@ -1,18 +1,18 @@
 cmake_minimum_required(VERSION 3.13...3.22)
 
-project(singly_linked_list DESCRIPTION "Singly Linked List"
-                          LANGUAGES   CXX
+project(list DESCRIPTION "Singly Linked List"
+              LANGUAGES   CXX
 )
 
-add_executable(${PROJECT_NAME} singly_linked_list.cc)
+add_library(${PROJECT_NAME} INTERFACE)
 
 target_include_directories(${PROJECT_NAME}
-    PUBLIC
+    INTERFACE
        "${DS_INCLUDE_DIR}/SinglyLinkedList"
 )
 
 target_compile_options(${PROJECT_NAME}
-    PRIVATE
+    INTERFACE
         -Wall
         -Werror
         -Wextra
@@ -20,12 +20,6 @@ target_compile_options(${PROJECT_NAME}
 )
 
 target_compile_features(${PROJECT_NAME}
-    PRIVATE
+    INTERFACE
         cxx_std_17
-)
-
-# Install the UDP socket comm binary to udp_comm_test/bin
-set(DS_INSTALL_DIR "${CMAKE_SOURCE_DIR}/bin")
-install(TARGETS ${PROJECT_NAME}
-    RUNTIME DESTINATION ${DS_INSTALL_DIR}
 )
