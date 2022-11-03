@@ -18,9 +18,7 @@ class Array {
     const T& operator[](std::size_t i) const { return data_[i]; }
     T& operator[](std::size_t i) { return data_[i]; }
 
-    std::size_t Size() const { return N; }
     std::size_t MaxSize() const { return N; }
-    bool Empty() const { return (0 == N); }
     void Fill(const T& val);
 
    private:
@@ -31,7 +29,7 @@ class Array {
 
 template <typename T, std::size_t N>
 void Array<T, N>::Copy(const Array& rhs) {
-    for (std::size_t i = 0; i < rhs.Size(); ++i) {
+    for (std::size_t i = 0; i < rhs.MaxSize(); ++i) {
         data_[i] = rhs[i];
     }
 }
@@ -39,7 +37,10 @@ void Array<T, N>::Copy(const Array& rhs) {
 template <typename T, std::size_t N>
 Array<T, N>& Array<T, N>::operator=(const Array<T, N>& rhs) {
     if (this == &rhs) return *this;
+
     Copy(rhs);
+
+    return *this;
 }
 
 template <typename T, std::size_t N>

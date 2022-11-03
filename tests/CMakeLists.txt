@@ -23,4 +23,4 @@ macro(package_add_test_with_libraries TESTNAME FILES LIBRARIES)
     set_target_properties(${TESTNAME} PROPERTIES FOLDER tests)
 endmacro()
 
-add_subdirectory(HelloWorld)
+add_subdirectory(Array)
