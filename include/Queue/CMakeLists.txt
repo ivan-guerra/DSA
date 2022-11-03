@@ -8,7 +8,7 @@ add_library(${PROJECT_NAME} INTERFACE)
 
 target_include_directories(${PROJECT_NAME}
     INTERFACE
-       "${DS_INCLUDE_DIR}/Queue"
+       ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 target_compile_options(${PROJECT_NAME}
