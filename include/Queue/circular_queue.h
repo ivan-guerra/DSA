@@ -4,6 +4,8 @@
 #include <cmath>
 #include <cstddef>
 
+namespace data_structures {
+
 template <typename T, std::size_t N>
 class CircularQueue {
    public:
@@ -65,5 +67,7 @@ bool CircularQueue<T, N>::Pop() {
     head_ = (head_ + 1) % (N + 1);
     return true;
 }
+
+}  // namespace data_structures
 
 #endif

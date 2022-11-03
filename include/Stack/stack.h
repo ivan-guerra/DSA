@@ -4,6 +4,8 @@
 #include <cstddef>
 #include <forward_list>
 
+namespace data_structures {
+
 template <typename T>
 class Stack {
    public:
@@ -24,5 +26,7 @@ class Stack {
    private:
     std::forward_list<T> data_;
 };
+
+}  // namespace data_structures
 
 #endif

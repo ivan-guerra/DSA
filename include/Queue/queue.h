@@ -3,6 +3,8 @@
 
 #include <list>
 
+namespace data_structures {
+
 template <typename T>
 class Queue {
    public:
@@ -23,5 +25,7 @@ class Queue {
    private:
     std::list<T> data_;
 };
+
+}  // namespace data_structures
 
 #endif

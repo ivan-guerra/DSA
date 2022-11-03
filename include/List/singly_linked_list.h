@@ -5,6 +5,8 @@
 #include <cstddef>
 #include <unordered_set>
 
+namespace data_structures {
+
 template <typename T>
 class SinglyLinkedList {
    public:
@@ -155,5 +157,7 @@ void SinglyLinkedList<T>::Unique() {
         }
     }
 }
+
+}  // namespace data_structures
 
 #endif

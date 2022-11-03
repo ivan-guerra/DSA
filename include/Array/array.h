@@ -3,6 +3,8 @@
 
 #include <cstdint>
 
+namespace data_structures {
+
 template <typename T, std::size_t N>
 class Array {
    public:
@@ -46,5 +48,7 @@ void Array<T, N>::Fill(const T& val) {
         data_[i] = val;
     }
 }
+
+}  // namespace data_structures
 
 #endif
