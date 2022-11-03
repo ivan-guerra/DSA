@@ -13,18 +13,5 @@ set_target_properties(gtest_main PROPERTIES FOLDER extern)
 set_target_properties(gmock PROPERTIES FOLDER extern)
 set_target_properties(gmock_main PROPERTIES FOLDER extern)
 
-macro(package_add_test_with_libraries TESTNAME FILES LIBRARIES)
-    add_executable(${TESTNAME} ${FILES})
-    # -Wno-uninitialized - Required to compile tests under Stack/. See
-    # https://stackoverflow.com/questions/46465442/why-am-i-not-getting-an-used-uninitialized-warning-from-gcc-in-this-trivial-ex
-    target_compile_options(${TESTNAME} PRIVATE -Wno-uninitialized)
-    target_link_libraries(${TESTNAME} gtest gmock gtest_main ${LIBRARIES})
-    gtest_discover_tests(${TESTNAME}
-        WORKING_DIRECTORY ${PROJECT_DIR}
-        PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${PROJECT_DIR}"
-    )
-    set_target_properties(${TESTNAME} PROPERTIES FOLDER tests)
-endmacro()
-
 add_subdirectory(Array)
 add_subdirectory(Stack)
