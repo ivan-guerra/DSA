@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13...3.22)
 
-project(list DESCRIPTION "Singly Linked List"
+project(list DESCRIPTION "List"
               LANGUAGES   CXX
 )
 
@@ -8,7 +8,7 @@ add_library(${PROJECT_NAME} INTERFACE)
 
 target_include_directories(${PROJECT_NAME}
     INTERFACE
-       "${DS_INCLUDE_DIR}/SinglyLinkedList"
+       "${DS_INCLUDE_DIR}/List"
 )
 
 target_compile_options(${PROJECT_NAME}
