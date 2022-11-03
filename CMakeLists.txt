@@ -8,4 +8,13 @@ project(data_structures
 set(DS_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/include"
     CACHE STRING "${PROJECT_NAME} include directory.")
 
-add_subdirectory(src)
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+    option(PACKAGE_TESTS "Build Unit Tests" ON)
+    if(PACKAGE_TESTS)
+        enable_testing()
+        include(GoogleTest)
+        add_subdirectory(tests)
+    endif()
+endif()
+
+add_subdirectory(include)
