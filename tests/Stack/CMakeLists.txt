@@ -6,6 +6,8 @@ add_executable(${TESTNAME} stack_test.cc stack_test_fixture.cc)
 
 target_compile_options(${TESTNAME}
     PRIVATE
+        # -Wno-uninitialized - Required to compile tests under Stack/. See
+        # https://stackoverflow.com/questions/46465442/why-am-i-not-getting-an-used-uninitialized-warning-from-gcc-in-this-trivial-ex
         -Wno-uninitialized
 )
 
