@@ -15,3 +15,6 @@ DS_BIN_DIR="${DS_PROJECT_PATH}/bin"
 
 # Build directory.
 DS_BUILD_DIR="${DS_PROJECT_PATH}/build"
+
+# Test directory.
+DS_TEST_DIR=$DS_BUILD_DIR
