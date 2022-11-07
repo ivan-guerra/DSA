@@ -24,6 +24,7 @@ class SinglyLinkedList {
     void PushFront(const T& val);
     void PopFront();
 
+    std::size_t Size() const;
     bool Empty() const { return (nullptr == head_); }
     void Reverse();
     void Remove(const T& val);
@@ -101,6 +102,18 @@ void SinglyLinkedList<T>::PopFront() {
     struct Node* delete_node = head_;
     head_ = head_->next;
     delete delete_node;
+}
+
+template <typename T>
+std::size_t SinglyLinkedList<T>::Size() const {
+    std::size_t size = 0;
+
+    struct Node* curr = head_;
+    while (curr) {
+        size++;
+        curr = curr->next;
+    }
+    return size;
 }
 
 template <typename T>
