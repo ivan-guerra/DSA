@@ -2,7 +2,12 @@ cmake_minimum_required(VERSION 3.13...3.22)
 
 set(TESTNAME queue_test)
 
-add_executable(${TESTNAME} queue_test.cc queue_test_fixture.cc)
+add_executable(${TESTNAME}
+    queue_test.cc
+    queue_test_fixture.cc
+    circular_queue_test.cc
+    circular_queue_test_fixture.cc
+)
 
 target_link_libraries(${TESTNAME}
     PRIVATE
