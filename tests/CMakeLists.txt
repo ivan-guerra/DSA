@@ -14,6 +14,7 @@ set_target_properties(gmock PROPERTIES FOLDER extern)
 set_target_properties(gmock_main PROPERTIES FOLDER extern)
 
 add_subdirectory(Array)
+add_subdirectory(HashTable)
 add_subdirectory(List)
 add_subdirectory(Stack)
 add_subdirectory(Queue)
