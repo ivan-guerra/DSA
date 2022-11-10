@@ -1,5 +1,6 @@
 add_subdirectory(Array)
 add_subdirectory(HashTable)
+add_subdirectory(Heap)
 add_subdirectory(List)
 add_subdirectory(Queue)
 add_subdirectory(Stack)
