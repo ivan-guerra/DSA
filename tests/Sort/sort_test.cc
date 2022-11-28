@@ -11,3 +11,8 @@ TEST_F(SortTest, ShouldReturnSortedKeysAfterBinaryInsertionSort) {
     algo::BinaryInsertionSort(unsorted_keys_);
     ASSERT_TRUE(std::is_sorted(unsorted_keys_.begin(), unsorted_keys_.end()));
 }
+
+TEST_F(SortTest, ShouldReturnSortedKeysAfterMergeSort) {
+    algo::MergeSort(unsorted_keys_, 0, unsorted_keys_.size() - 1);
+    ASSERT_TRUE(std::is_sorted(unsorted_keys_.begin(), unsorted_keys_.end()));
+}

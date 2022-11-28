@@ -22,6 +22,31 @@ static int bsearch(const std::vector<T>& keys, const T& key, int l, int r) {
 }
 
 template <typename T>
+static void Merge(std::vector<T>& keys, int l, int m, int r) {
+    int llen = m - l + 1;
+    T larr[llen];
+
+    int rlen = r - m;
+    T rarr[rlen];
+
+    for (int i = 0; i < llen; ++i) larr[i] = keys[l + i];
+    for (int i = 0; i < rlen; ++i) rarr[i] = keys[m + i + 1];
+
+    int i = 0;
+    int j = 0;
+    int k = l;
+    while ((i < llen) && (j < rlen)) {
+        if (larr[i] <= rarr[j])
+            keys[k++] = larr[i++];
+        else
+            keys[k++] = rarr[j++];
+    }
+
+    while (i < llen) keys[k++] = larr[i++];
+    while (j < rlen) keys[k++] = rarr[j++];
+}
+
+template <typename T>
 void InsertionSort(std::vector<T>& keys) {
     int i = 1;
     while (i < static_cast<int>(keys.size())) {
@@ -49,6 +74,18 @@ void BinaryInsertionSort(std::vector<T>& keys) {
         keys[j + 1] = key;
         ++i;
     }
+}
+
+template <typename T>
+void MergeSort(std::vector<T>& keys, int l, int r) {
+    if (l >= r) return;
+
+    int m = l + (r - l) / 2;
+
+    MergeSort(keys, l, m);
+    MergeSort(keys, m + 1, r);
+
+    Merge(keys, l, m, r);
 }
 
 }  // namespace algo
