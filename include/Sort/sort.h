@@ -47,6 +47,22 @@ static void Merge(std::vector<T>& keys, int l, int m, int r) {
 }
 
 template <typename T>
+static int Partition(std::vector<T>& keys, int l, int r) {
+    T pivot_elem = keys[r];
+    int pivot_idx = l - 1;
+    for (int i = l; i < r; ++i) {
+        if (keys[i] < pivot_elem) {
+            pivot_idx++;
+            std::swap(keys[i], keys[pivot_idx]);
+        }
+    }
+    pivot_idx++;
+    std::swap(keys[r], keys[pivot_idx]);
+
+    return pivot_idx;
+}
+
+template <typename T>
 void InsertionSort(std::vector<T>& keys) {
     int i = 1;
     while (i < static_cast<int>(keys.size())) {
@@ -86,6 +102,15 @@ void MergeSort(std::vector<T>& keys, int l, int r) {
     MergeSort(keys, m + 1, r);
 
     Merge(keys, l, m, r);
+}
+
+template <typename T>
+void QuickSort(std::vector<T>& keys, int l, int r) {
+    if (l >= r) return;
+
+    int pivot = Partition(keys, l, r);
+    QuickSort(keys, l, pivot - 1);
+    QuickSort(keys, pivot + 1, r);
 }
 
 }  // namespace algo
