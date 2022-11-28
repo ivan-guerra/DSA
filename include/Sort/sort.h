@@ -113,6 +113,19 @@ void QuickSort(std::vector<T>& keys, int l, int r) {
     QuickSort(keys, pivot + 1, r);
 }
 
+template <typename T>
+void BubbleSort(std::vector<T>& keys) {
+    for (std::size_t i = 1; i < keys.size(); ++i) {
+        for (int j = i - 1; j >= 0; --j) {
+            if (keys[j] > keys[j + 1]) {
+                std::swap(keys[j], keys[j + 1]);
+            } else {
+                break;
+            }
+        }
+    }
+}
+
 }  // namespace algo
 
 #endif
