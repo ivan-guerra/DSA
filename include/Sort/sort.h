@@ -126,6 +126,22 @@ void BubbleSort(std::vector<T>& keys) {
     }
 }
 
+template <typename T>
+T QuickSelect(std::vector<T>& keys, int k) {
+    int left = 0;
+    int right = keys.size() - 1;
+    while (left != right) {
+        int pivot_index = Partition(keys, left, right);
+        if (k == pivot_index)
+            return keys[pivot_index];
+        else if (k < pivot_index)
+            right = pivot_index - 1;
+        else
+            left = pivot_index + 1;
+    }
+    return keys[left];
+}
+
 }  // namespace algo
 
 #endif
